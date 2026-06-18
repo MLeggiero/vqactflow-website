@@ -33,6 +33,6 @@ Then open `http://localhost:8000` in a browser.
 3. Under **Build and deployment → Source**, choose **Deploy from a branch**.
 4. Pick the branch this site lives on and the `/ (root)` folder, then **Save**.
 5. GitHub will publish the site at:
-   `https://<github-username>.github.io/<repository-name>/`
+   `https://mleggiero.github.io/vqactflow-website/`
    (the URL is also shown on the Pages settings screen once it's live;
    the first deployment can take a minute or two).
