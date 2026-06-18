@@ -31,11 +31,6 @@ python3 -m http.server 8000
 
 Then open `http://localhost:8000` in a browser.
 
-## Viewing on GitHub Pages
-
-1. Push this branch (or merge it into the repository's default branch —
-   GitHub Pages can only serve from one branch at a time).
-2. In the GitHub repo, go to **Settings → Pages**.
 3. Under **Build and deployment → Source**, choose **Deploy from a branch**.
 4. Pick the branch this site lives on and the `/ (root)` folder, then **Save**.
 5. GitHub will publish the site at:
