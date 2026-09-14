@@ -3,316 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VQActFlow: Vector-Quantized Action Mode Steering for Multi-Task Robot Manipulation</title>
-<meta name="description" content="VQActFlow tokenizes robot action chunks into a discrete VQ-VAE codebook and generates code sequences via Variational Flow Matching, maintaining an explicit preference over action modes that inference-time guidance (CFG + a learned codebook critic) can steer.">
+<title>VQActFlow &mdash; Project Page</title>
 
-<meta property="og:title" content="VQActFlow: Vector-Quantized Action Mode Steering for Multi-Task Robot Manipulation">
-<meta property="og:description" content="A multi-task robot manipulation policy that maintains an explicit preference over discrete action modes throughout generation, enabling effective inference-time guidance.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="assets/figures/fig1_framework.png">
+<!-- This page has moved. Canonical project page: -->
+<link rel="canonical" href="https://vqactflow.github.io/vqactflow/">
+<meta http-equiv="refresh" content="0; url=https://vqactflow.github.io/vqactflow/">
+<meta name="robots" content="noindex">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="css/style.css">
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: #f7f9fc;
+    color: #1d2330;
+    text-align: center;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+  .card { max-width: 540px; }
+  h1 { font-size: 1.35rem; font-weight: 600; margin: 0 0 12px; }
+  p { color: #5b6472; line-height: 1.6; margin: 0 0 20px; }
+  a.btn {
+    display: inline-block;
+    padding: 11px 22px;
+    border-radius: 999px;
+    background: #14182a;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  a.btn:hover { background: #173a78; }
+</style>
 </head>
 <body>
-
-<header class="hero">
-  <div class="container">
-    <span class="venue-tag">Multi-Task Robot Manipulation &middot; Preprint 2026</span>
-    <h1>VQActFlow: Vector-Quantized Action Mode Steering<br>for Multi-Task Robot Manipulation</h1>
-
-    <p class="authors">
-      <a href="#">Zhigen Zhao</a><sup>1</sup>,
-      <a href="#">Mark Leggiero</a><sup>1</sup>,
-      <a href="#">Yipu Chen</a><sup>1</sup>,
-      <a href="#">Haoran Liu</a><sup>1</sup>,
-      <a href="#">Yifan Wu</a><sup>1</sup>,
-      <a href="#">Huishu Xue</a><sup>1</sup>,
-      <a href="#">Sirui Zhan</a><sup>1</sup>,
-      <a href="#">Ye Zhao</a><sup>1</sup>
+  <div class="card">
+    <h1>This project page has moved</h1>
+    <p>
+      You are being redirected to the VQActFlow project page.
+      If you are not redirected automatically, use the link below.
     </p>
-    <p class="affiliation"><sup>1</sup>Institute for Robotics and Intelligent Machines (IRIM), Georgia Institute of Technology, Atlanta, GA 30332</p>
-
-    <div class="hero-links">
-      <a class="btn" href="https://github.com/zhigenzhao/VQActFlow" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18.92-.26 1.91-.39 2.9-.39.99 0 1.98.13 2.9.39 2.2-1.49 3.18-1.18 3.18-1.18.62 1.58.23 2.75.11 3.04.73.81 1.18 1.84 1.18 3.1 0 4.42-2.69 5.4-5.26 5.68.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
-        Code
-      </a>
-      <a class="btn" href="https://youtu.be/SfGhB1Efido" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>
-        Video
-      </a>
-      <a class="btn" href="https://arxiv.org/abs/2606.21600" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6"/><path d="M9 17h4"/></svg>
-        arXiv
-      </a>
-      <a class="btn" href="#bibtex">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        BibTeX
-      </a>
-    </div>
-
-    <nav class="toc">
-      <a href="#video">Video</a>
-      <a href="#abstract">Abstract</a>
-      <a href="#method">Method</a>
-      <a href="#experiments">Experiments</a>
-      <a href="#bibtex">Citation</a>
-    </nav>
+    <p><a class="btn" href="https://vqactflow.github.io/vqactflow/">Go to the project page</a></p>
   </div>
-</header>
 
-<main>
-
-  <section id="video">
-    <div class="container">
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/SfGhB1Efido" title="VQActFlow video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
-
-  <section id="abstract" class="alt">
-    <div class="container">
-      <div class="section-kicker">Abstract</div>
-      <p class="lede">
-        Multi-task manipulation requires picking the right action mode for the task at hand &mdash; the wrong pick
-        means the wrong task. <strong>VQActFlow</strong> tokenizes action chunks into a discrete codebook and
-        generates code sequences with Variational Flow Matching, keeping an explicit, steerable preference over
-        action modes throughout generation. Classifier-free guidance and a learned codebook critic steer that
-        preference at inference time &mdash; no retraining needed.
-      </p>
-
-      <div class="stat-grid" style="margin-top:32px;">
-        <div class="stat-card">
-          <span class="stat-value">81.0%</span>
-          <span class="stat-label">LIBERO-Goal peak success (w=4), vs. 61.5% for the closest discrete baseline</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-value">80.5%</span>
-          <span class="stat-label">LIBERO-90 success with CFG + critic, best among all baselines</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-value">57.5%</span>
-          <span class="stat-label">G1 humanoid success at w=6, up from 23.8% unguided</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-value">77.5%</span>
-          <span class="stat-label">Bimanual avg. success with CFG + critic combined</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="method">
-    <div class="container">
-      <div class="section-kicker">Method</div>
-      <h2 class="section-title">Tokenize, generate, steer</h2>
-
-      <div class="figure-block">
-        <figure>
-          <img src="assets/figures/fig1_framework.png" alt="VQActFlow framework: VQ-VAE action tokenization followed by a Variational Flow Matching policy with CFG and codebook critic guidance.">
-          <figcaption><strong>Figure 1.</strong> A VQ-VAE tokenizes action chunks into a discrete codebook. A
-            Variational Flow Matching policy generates code sequences while keeping logits over the full codebook at
-            every step &mdash; a categorical preference that CFG and a codebook critic can steer.</figcaption>
-        </figure>
-      </div>
-
-      <p class="lede">
-        Most flow-matching policies generate in a continuous space with no explicit notion of action mode, so
-        guidance just reshapes one continuous distribution. VQActFlow keeps a discrete, steerable preference over
-        action modes throughout generation, not just at the end of sampling.
-      </p>
-
-      <ul class="contrib-list">
-        <li>
-          <span class="num">1</span>
-          <div><strong>CFG on language conditioning.</strong> Extrapolates conditional vs. unconditional logits at
-          every step to sharpen commitment to the instructed task.</div>
-        </li>
-        <li>
-          <span class="num">2</span>
-          <div><strong>A learned codebook critic.</strong> A small contrastively-trained transformer scores
-          feasibility and nudges the distribution toward feasible modes.</div>
-        </li>
-      </ul>
-
-      <p class="lede" style="margin-top:24px;">
-        Both act on the same categorical preference, so their effects accumulate and combine without retraining.
-      </p>
-    </div>
-  </section>
-
-  <section id="experiments" class="alt">
-    <div class="container">
-      <div class="section-kicker">Experiments</div>
-      <h2 class="section-title">LIBERO, a G1 humanoid, and an ALOHA-style bimanual platform</h2>
-      <p class="lede">
-        VQActFlow outperforms continuous and discrete baselines across all three platforms, under matched encoders,
-        data, and training steps.
-      </p>
-
-      <!-- LIBERO-Goal -->
-      <div class="exp-block">
-        <h3>CFG on LIBERO-Goal</h3>
-        <p class="exp-sub">Guidance through the categorical interface beats guidance through a continuous proxy.</p>
-
-        <div class="figure-block">
-          <figure>
-            <img src="assets/figures/fig2_cfg_sweep.png" alt="LIBERO-Goal success rate vs. CFG weight for VQActFlow and Discrete Policy.">
-            <figcaption><strong>Figure 2.</strong> Success rate vs. CFG weight. VQActFlow peaks at w=4 (81.0%);
-              Discrete Policy needs stronger guidance to reach a lower ceiling (61.5%).</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <!-- LIBERO-90 -->
-      <div class="exp-block">
-        <h3>Multi-task scaling on LIBERO-90</h3>
-        <p class="exp-sub">CFG and the codebook critic provide complementary, largely non-redundant gains at scale.</p>
-
-        <div class="table-wrap">
-          <table class="results">
-            <caption><strong>Table I.</strong> LIBERO-90 success rate (%) for different policies, trained from scratch under matched conditions.</caption>
-            <thead>
-              <tr><th>Method</th><th>Type</th><th>CFG w</th><th>Critic &lambda;</th><th>Success</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>MT-ACT</td><td>Continuous</td><td>&ndash;</td><td>&ndash;</td><td>72.4</td></tr>
-              <tr><td>CFM</td><td>Continuous</td><td>&ndash;</td><td>&ndash;</td><td>77.2</td></tr>
-              <tr><td>VQ-BeT</td><td>VQ-based</td><td>&ndash;</td><td>&ndash;</td><td>24.1</td></tr>
-              <tr><td>Discrete Policy</td><td>VQ-based</td><td>1.0</td><td>&ndash;</td><td>49.4</td></tr>
-              <tr><td>Discrete Policy</td><td>VQ-based</td><td>2.0</td><td>&ndash;</td><td>60.3</td></tr>
-              <tr><td>VQActFlow</td><td>VQ-based</td><td>1.0</td><td>0.0</td><td>72.3</td></tr>
-              <tr><td>VQActFlow</td><td>VQ-based</td><td>1.0</td><td>1.0</td><td>74.3</td></tr>
-              <tr><td>VQActFlow</td><td>VQ-based</td><td>2.0</td><td>0.0</td><td>77.6</td></tr>
-              <tr class="highlight"><td>VQActFlow</td><td>VQ-based</td><td>2.0</td><td>1.0</td><td>80.5</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="table-wrap">
-          <table class="results">
-            <caption><strong>Table II.</strong> Ablation on codebook size K, LIBERO-90, guidance disabled.</caption>
-            <thead>
-              <tr><th>Codebook size</th><th>128</th><th>256</th><th>512</th><th>1024</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Success rate</td><td>62.6</td><td>65.6</td><td><strong>72.3</strong></td><td>70.1</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="exp-sub" style="margin-top:-6px;">Success peaks at K=512: smaller codebooks limit vocabulary
-          granularity, larger ones enlarge the per-position classification space and make the categorical prediction
-          harder to learn.</p>
-      </div>
-
-      <!-- Humanoid -->
-      <div class="exp-block">
-        <h3>Humanoid whole-body manipulation</h3>
-        <p class="exp-sub">A Unitree G1 with two dexterous hands, four shared-workspace pick-and-place tasks differing only in target object and instruction.</p>
-
-        <div class="figure-block">
-          <figure>
-            <img src="assets/figures/fig5_humanoid.png" alt="Unitree G1 humanoid experimental setup and four pick-and-place evaluation tasks.">
-            <figcaption><strong>Figure 3.</strong> G1 humanoid setup and tasks: place the red ball / cup / bottle /
-              medicine bottle into the box.</figcaption>
-          </figure>
-        </div>
-
-        <div class="table-wrap">
-          <table class="results">
-            <caption><strong>Table III.</strong> Aggregated G1 hardware policy success rate (%).</caption>
-            <thead>
-              <tr><th>CFG weight</th><th>Success</th><th>Missed grasp</th><th>Wrong task</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>w=1</td><td>23.8</td><td>35.0</td><td>41.3</td></tr>
-              <tr class="highlight"><td>w=6</td><td>57.5</td><td>40.0</td><td>2.5</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="exp-sub" style="margin-top:-6px;">CFG's gain comes almost entirely from correcting wrong-task
-          errors (41.3%&rarr;2.5%) &mdash; it improves task disambiguation, not execution quality.</p>
-      </div>
-
-      <!-- Bimanual -->
-      <div class="exp-block">
-        <h3>Bimanual manipulation</h3>
-        <p class="exp-sub">Two ALOHA-style arms on four contact-rich tasks, three requiring coordinated bimanual use.</p>
-
-        <div class="figure-block">
-          <figure>
-            <img src="assets/figures/fig7_setup.png" alt="Bimanual manipulation experimental setup with ALOHA-style arms and three cameras.">
-            <figcaption><strong>Figure 4.</strong> Bimanual setup: two ALOHA-style arms, one wrist camera per arm,
-              and one fixed workspace camera.</figcaption>
-          </figure>
-        </div>
-
-        <div class="table-wrap">
-          <table class="results">
-            <caption><strong>Table IV.</strong> Success rates (%) on bimanual manipulation tasks.</caption>
-            <thead>
-              <tr><th>Method</th><th>Battery</th><th>Duck</th><th>Cylinder</th><th>Ball</th><th>Avg.</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Discrete Policy, w=1.0</td><td>35.0</td><td>70.0</td><td>15.0</td><td>75.0</td><td>48.8</td></tr>
-              <tr><td>Discrete Policy, w=4.0</td><td>65.0</td><td>70.0</td><td>35.0</td><td>75.0</td><td>61.3</td></tr>
-              <tr><td>VQActFlow, w=1.0, &lambda;=0.0</td><td>40.0</td><td>70.0</td><td>15.0</td><td>55.0</td><td>45.0</td></tr>
-              <tr><td>VQActFlow, w=1.0, &lambda;=1.0</td><td>50.0</td><td>75.0</td><td>50.0</td><td>65.0</td><td>60.0</td></tr>
-              <tr><td>VQActFlow, w=4.0, &lambda;=0.0</td><td>70.0</td><td>85.0</td><td>55.0</td><td>85.0</td><td>73.8</td></tr>
-              <tr class="highlight"><td>VQActFlow, w=4.0, &lambda;=1.0</td><td>70.0</td><td>90.0</td><td>65.0</td><td>85.0</td><td>77.5</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="exp-sub" style="margin-top:-6px;">A continuous flow-matching baseline at the same backbone fails
-          all four tasks &mdash; severe joint-jerk oscillation, roughly two orders of magnitude worse than VQActFlow.</p>
-
-        <div class="table-wrap">
-          <table class="results">
-            <caption><strong>Table V.</strong> Bimanual inference time per action chunk (ms), RTX 5090.</caption>
-            <thead>
-              <tr><th>Configuration</th><th>Unguided</th><th>CFG</th><th>Critic</th><th>CFG + critic</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Inference time</td><td>155.2</td><td>288.9</td><td>216.7</td><td>350.2</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="exp-sub" style="margin-top:-6px;">350 ms fits well within the 1.28 s per action chunk; asynchronous
-          inference computes the next chunk during execution.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="bibtex" class="alt">
-    <div class="container">
-      <div class="section-kicker">Citation</div>
-      <h2 class="section-title">BibTeX</h2>
-      <div class="bibtex-wrap">
-        <button class="copy-btn" type="button">Copy</button>
-        <pre class="bibtex">@article{zhao2026vqactflow,
-  title={VQActFlow: Vector-Quantized Action Mode Steering for Multi-Task Robot Manipulation},
-  author={Zhigen Zhao, Mark Leggiero, Yipu Chen, Haoran Liu, Yifan Wu, Huishu Xue, Sirui Zhan, Ye Zhao},
-  journal={arXiv preprint arXiv:2606.21600},
-  year={2026}
-}</pre>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="container">
-    <p>Institute for Robotics and Intelligent Machines (IRIM), Georgia Institute of Technology</p>
-    <p>Project page built from the VQActFlow manuscript. For questions about the paper, please contact the authors.</p>
-  </div>
-</footer>
-
-<script src="js/main.js"></script>
+  <script>
+    window.location.replace("https://vqactflow.github.io/vqactflow/");
+  </script>
 </body>
 </html>
